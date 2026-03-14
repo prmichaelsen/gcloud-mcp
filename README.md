@@ -99,6 +99,25 @@ Fetch build logs from Cloud Logging with step filtering and line limits.
 | `limit` | number | No | Max lines (default 100) |
 | `tail` | boolean | No | Return last N lines |
 
+### `gcloud_get_service`
+Get full Cloud Run service details including URL, env vars, resource limits, scaling, and traffic splits.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `serviceName` | string | Yes | Cloud Run service name |
+| `region` | string | No | GCP region (defaults to env) |
+| `projectId` | string | No | GCP project ID |
+
+### `gcloud_list_revisions`
+List Cloud Run revisions for a service. Shows deployment history with image tags and creation times.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `serviceName` | string | Yes | Cloud Run service name |
+| `region` | string | No | GCP region |
+| `projectId` | string | No | GCP project ID |
+| `limit` | number | No | Max revisions (default 10, max 50) |
+
 ### `gcloud_list_services`
 List Cloud Run services in a region.
 
@@ -119,6 +138,21 @@ Fetch Cloud Run service logs with severity, time, and revision filters.
 | `since` | string | No | Time range: "1h", "30m", "2d" (default "1h") |
 | `revision` | string | No | Filter by revision |
 | `limit` | number | No | Max entries (default 50, max 500) |
+
+### `gcloud_list_triggers`
+List Cloud Build triggers in a project.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `projectId` | string | No | GCP project ID |
+
+### `gcloud_get_trigger`
+Get full Cloud Build trigger configuration including repo, branch filter, build steps, and substitutions.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `triggerId` | string | Yes | Cloud Build trigger ID |
+| `projectId` | string | No | GCP project ID |
 
 ## Environment Variables
 

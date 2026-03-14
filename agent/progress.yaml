@@ -27,9 +27,9 @@ milestones:
 
   - id: M3
     title: Service Details & Triggers
-    status: not_started
+    status: completed
     tasks_total: 4
-    tasks_completed: 0
+    tasks_completed: 4
     estimated_weeks: 1
     file: agent/milestones/milestone-3-service-details-and-triggers.md
     dependencies:
@@ -137,8 +137,9 @@ tasks:
 
     - id: 11
       title: Update README and server registrations
-      status: not_started
+      status: completed
       estimated_hours: 1
+      completed_date: 2026-03-14
       dependencies: [8, 9, 10]
 
   milestone_4:
