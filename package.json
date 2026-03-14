@@ -40,6 +40,7 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "@google-cloud/artifact-registry": "^4.7.0",
     "@google-cloud/cloudbuild": "^5.5.0",
     "@google-cloud/logging": "^11.2.1",
     "@google-cloud/run": "^3.2.0",

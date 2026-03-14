@@ -152,8 +152,9 @@ tasks:
 
     - id: 13
       title: Implement gcloud_list_artifacts
-      status: not_started
+      status: completed
       estimated_hours: 2
+      completed_date: 2026-03-14
 
     - id: 14
       title: Implement gcloud_list_secrets

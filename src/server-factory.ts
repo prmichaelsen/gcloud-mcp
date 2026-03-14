@@ -20,6 +20,7 @@ import { listTriggersTool, handleListTriggers } from './tools/list-triggers.js';
 import { getTriggerTool, handleGetTrigger } from './tools/get-trigger.js';
 import { listJobsTool, handleListJobs } from './tools/list-jobs.js';
 import { getJobExecutionTool, handleGetJobExecution } from './tools/get-job-execution.js';
+import { listArtifactsTool, handleListArtifacts } from './tools/list-artifacts.js';
 
 export interface ServerOptions {
   name?: string;
@@ -103,6 +104,7 @@ function registerHandlers(server: Server, userId: string): void {
       getTriggerTool,
       listJobsTool,
       getJobExecutionTool,
+      listArtifactsTool,
     ],
   }));
 
@@ -148,6 +150,9 @@ function registerHandlers(server: Server, userId: string): void {
           break;
         case 'gcloud_get_job_execution':
           result = await handleGetJobExecution(args as any);
+          break;
+        case 'gcloud_list_artifacts':
+          result = await handleListArtifacts(args as any);
           break;
         default:
           throw new McpError(ErrorCode.MethodNotFound, `Unknown tool: ${name}`);
