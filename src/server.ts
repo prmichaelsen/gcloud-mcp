@@ -18,6 +18,8 @@ import { getServiceTool, handleGetService } from './tools/get-service.js';
 import { listRevisionsTool, handleListRevisions } from './tools/list-revisions.js';
 import { listTriggersTool, handleListTriggers } from './tools/list-triggers.js';
 import { getTriggerTool, handleGetTrigger } from './tools/get-trigger.js';
+import { listJobsTool, handleListJobs } from './tools/list-jobs.js';
+import { getJobExecutionTool, handleGetJobExecution } from './tools/get-job-execution.js';
 
 async function initServer(): Promise<Server> {
   logger.info('Initializing gcloud-mcp server...');
@@ -47,6 +49,8 @@ function registerHandlers(server: Server): void {
         listRevisionsTool,
         listTriggersTool,
         getTriggerTool,
+        listJobsTool,
+        getJobExecutionTool,
       ],
     };
   });
@@ -87,6 +91,12 @@ function registerHandlers(server: Server): void {
           break;
         case 'gcloud_get_trigger':
           result = await handleGetTrigger(args as any);
+          break;
+        case 'gcloud_list_jobs':
+          result = await handleListJobs(args as any);
+          break;
+        case 'gcloud_get_job_execution':
+          result = await handleGetJobExecution(args as any);
           break;
         default:
           throw new McpError(ErrorCode.MethodNotFound, `Unknown tool: ${name}`);

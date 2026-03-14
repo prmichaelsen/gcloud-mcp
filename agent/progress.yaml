@@ -145,8 +145,9 @@ tasks:
   milestone_4:
     - id: 12
       title: Implement Cloud Run Jobs tools
-      status: not_started
+      status: completed
       estimated_hours: 3
+      completed_date: 2026-03-14
       dependencies: [5]
 
     - id: 13
