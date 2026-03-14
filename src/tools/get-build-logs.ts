@@ -5,7 +5,7 @@ import { handleToolError } from '../utils/error-handler.js';
 const logging = new Logging();
 
 export const getBuildLogsTool = {
-  name: 'get_build_logs',
+  name: 'gcloud_get_build_logs',
   description: 'Fetch Cloud Build logs from Cloud Logging. Supports step filtering and line limits.',
   inputSchema: {
     type: 'object',

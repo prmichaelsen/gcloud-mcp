@@ -29,13 +29,20 @@
     "README.md",
     "LICENSE"
   ],
-  "keywords": ["mcp", "gcloud", "cloud-build", "cloud-run", "google-cloud"],
+  "keywords": [
+    "mcp",
+    "gcloud",
+    "cloud-build",
+    "cloud-run",
+    "google-cloud"
+  ],
   "author": "Patrick Michaelsen",
   "license": "MIT",
   "type": "module",
   "dependencies": {
     "@google-cloud/cloudbuild": "^5.5.0",
     "@google-cloud/logging": "^11.2.1",
+    "@google-cloud/run": "^3.2.0",
     "@modelcontextprotocol/sdk": "^1.27.1",
     "dotenv": "^17.3.1"
   },

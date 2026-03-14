@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import {
@@ -14,6 +12,8 @@ import { listBuildsTool, handleListBuilds } from './tools/list-builds.js';
 import { getBuildTool, handleGetBuild } from './tools/get-build.js';
 import { getBuildLogsTool, handleGetBuildLogs } from './tools/get-build-logs.js';
 import { gcloudWhoamiTool, handleGcloudWhoami } from './tools/gcloud-whoami.js';
+import { listServicesTool, handleListServices } from './tools/list-services.js';
+import { getServiceLogsTool, handleGetServiceLogs } from './tools/get-service-logs.js';
 
 async function initServer(): Promise<Server> {
   logger.info('Initializing gcloud-mcp server...');
@@ -37,6 +37,8 @@ function registerHandlers(server: Server): void {
         getBuildTool,
         getBuildLogsTool,
         gcloudWhoamiTool,
+        listServicesTool,
+        getServiceLogsTool,
       ],
     };
   });
@@ -48,17 +50,23 @@ function registerHandlers(server: Server): void {
       let result: string;
 
       switch (name) {
-        case 'list_builds':
+        case 'gcloud_list_builds':
           result = await handleListBuilds(args as any);
           break;
-        case 'get_build':
+        case 'gcloud_get_build':
           result = await handleGetBuild(args as any);
           break;
-        case 'get_build_logs':
+        case 'gcloud_get_build_logs':
           result = await handleGetBuildLogs(args as any);
           break;
         case 'gcloud_whoami':
           result = await handleGcloudWhoami(args as any);
+          break;
+        case 'gcloud_list_services':
+          result = await handleListServices(args as any);
+          break;
+        case 'gcloud_get_service_logs':
+          result = await handleGetServiceLogs(args as any);
           break;
         default:
           throw new McpError(ErrorCode.MethodNotFound, `Unknown tool: ${name}`);

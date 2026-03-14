@@ -5,7 +5,7 @@ import { handleToolError } from '../utils/error-handler.js';
 const client = new CloudBuildClient();
 
 export const listBuildsTool = {
-  name: 'list_builds',
+  name: 'gcloud_list_builds',
   description: 'List Cloud Build builds with optional filters for status, trigger, and branch. Returns status, duration, source, trigger name, and timing.',
   inputSchema: {
     type: 'object',

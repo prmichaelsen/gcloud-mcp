@@ -5,7 +5,7 @@ import { handleToolError } from '../utils/error-handler.js';
 const client = new CloudBuildClient();
 
 export const getBuildTool = {
-  name: 'get_build',
+  name: 'gcloud_get_build',
   description: 'Get full Cloud Build details including steps, substitutions, images, and per-step timing breakdown.',
   inputSchema: {
     type: 'object',
