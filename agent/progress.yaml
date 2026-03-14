@@ -6,27 +6,99 @@ project:
   description: |
     Google Cloud MCP server for Cloud Build and Cloud Run log tools
 
-milestones: []
+milestones:
+  - id: M1
+    title: Project Setup & Core Tools
+    status: not_started
+    tasks_total: 4
+    tasks_completed: 0
+    estimated_weeks: 1
+    file: agent/milestones/milestone-1-project-setup-and-core-tools.md
 
-tasks: {}
+  - id: M2
+    title: Cloud Run Tools & Publishing
+    status: not_started
+    tasks_total: 3
+    tasks_completed: 0
+    estimated_weeks: 1
+    file: agent/milestones/milestone-2-cloud-run-tools-and-publishing.md
+    dependencies:
+      - M1
+
+tasks:
+  milestone_1:
+    - id: 1
+      title: Bootstrap Project
+      status: not_started
+      estimated_hours: 2
+      file: agent/tasks/milestone-1-project-setup-and-core-tools/task-1-bootstrap-project.md
+
+    - id: 2
+      title: Implement Standalone Server
+      status: not_started
+      estimated_hours: 2
+      dependencies: [1]
+      file: agent/tasks/milestone-1-project-setup-and-core-tools/task-2-implement-standalone-server.md
+
+    - id: 3
+      title: Implement Cloud Build Tools
+      status: not_started
+      estimated_hours: 3
+      dependencies: [2]
+      file: agent/tasks/milestone-1-project-setup-and-core-tools/task-3-implement-cloud-build-tools.md
+
+    - id: 4
+      title: Implement Whoami Tool
+      status: not_started
+      estimated_hours: 1
+      dependencies: [2]
+      file: agent/tasks/milestone-1-project-setup-and-core-tools/task-4-implement-whoami-tool.md
+
+  milestone_2:
+    - id: 5
+      title: Implement Cloud Run Tools
+      status: not_started
+      estimated_hours: 3
+      dependencies: [2]
+      file: agent/tasks/milestone-2-cloud-run-tools-and-publishing/task-5-implement-cloud-run-tools.md
+
+    - id: 6
+      title: Create Server Factory
+      status: not_started
+      estimated_hours: 2
+      dependencies: [3, 5]
+      file: agent/tasks/milestone-2-cloud-run-tools-and-publishing/task-6-create-server-factory.md
+
+    - id: 7
+      title: Publish to npm
+      status: not_started
+      estimated_hours: 1
+      dependencies: [6]
+      file: agent/tasks/milestone-2-cloud-run-tools-and-publishing/task-7-publish-to-npm.md
 
 documentation:
-  design_documents: 0
-  milestone_documents: 0
-  pattern_documents: 0
-  task_documents: 0
+  design_documents: 1
+  milestone_documents: 2
+  pattern_documents: 7
+  task_documents: 7
 
 progress:
-  planning: 0
+  planning: 100
   implementation: 0
-  overall: 0
+  overall: 10
 
-recent_work: []
+recent_work:
+  - date: 2026-03-14
+    items:
+      - Created requirements document
+      - Created clarification and addressed all questions
+      - Planned 2 milestones with 7 tasks
+      - Installed mcp-server-starter ACP package
 
 next_steps:
-  - Define project requirements in agent/design/requirements.md
-  - Plan milestones and tasks with @acp.plan
-  - Start development with @acp.proceed
+  - Start M1 Task 1 — Bootstrap project with @acp.proceed
+  - Review task documents for accuracy
+  - Run @acp.validate to check consistency
 
 notes: []
 
