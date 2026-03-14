@@ -17,9 +17,9 @@ milestones:
 
   - id: M2
     title: Cloud Run Tools & Publishing
-    status: not_started
+    status: completed
     tasks_total: 3
-    tasks_completed: 0
+    tasks_completed: 3
     estimated_weeks: 1
     file: agent/milestones/milestone-2-cloud-run-tools-and-publishing.md
     dependencies:
@@ -77,8 +77,9 @@ tasks:
 
     - id: 7
       title: Publish to npm
-      status: not_started
+      status: completed
       estimated_hours: 1
+      completed_date: 2026-03-14
       dependencies: [6]
       file: agent/tasks/milestone-2-cloud-run-tools-and-publishing/task-7-publish-to-npm.md
 
