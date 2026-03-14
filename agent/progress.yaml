@@ -158,8 +158,9 @@ tasks:
 
     - id: 14
       title: Implement gcloud_list_secrets
-      status: not_started
+      status: completed
       estimated_hours: 2
+      completed_date: 2026-03-14
 
     - id: 15
       title: Update README and server registrations
