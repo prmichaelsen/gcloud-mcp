@@ -12,7 +12,7 @@ npm install @prmichaelsen/gcloud-mcp
 
 - Node.js 20+
 - GCP Application Default Credentials: `gcloud auth application-default login`
-- Required IAM roles: `roles/cloudbuild.builds.viewer`, `roles/logging.viewer`, `roles/run.viewer`
+- Required IAM roles: `roles/cloudbuild.builds.viewer`, `roles/logging.viewer`, `roles/run.viewer`, `roles/artifactregistry.reader`, `roles/secretmanager.viewer`
 
 ## Usage
 
@@ -153,6 +153,43 @@ Get full Cloud Build trigger configuration including repo, branch filter, build 
 |-----------|------|----------|-------------|
 | `triggerId` | string | Yes | Cloud Build trigger ID |
 | `projectId` | string | No | GCP project ID |
+
+### `gcloud_list_jobs`
+List Cloud Run Jobs in a region.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `region` | string | No | GCP region (defaults to env) |
+| `projectId` | string | No | GCP project ID |
+
+### `gcloud_get_job_execution`
+Get Cloud Run Job execution details or list recent executions.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `jobName` | string | Yes | Cloud Run Job name |
+| `executionName` | string | No | Specific execution name (omit to list recent) |
+| `region` | string | No | GCP region |
+| `projectId` | string | No | GCP project ID |
+| `limit` | number | No | Max executions to list (default 5, max 20) |
+
+### `gcloud_list_artifacts`
+List Docker images in an Artifact Registry repository, or list repositories.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `repository` | string | No | Repository name (omit to list repos) |
+| `region` | string | No | GCP region |
+| `projectId` | string | No | GCP project ID |
+| `limit` | number | No | Max images (default 10, max 50) |
+
+### `gcloud_list_secrets`
+List Secret Manager secret names (NOT values).
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `projectId` | string | No | GCP project ID |
+| `filter` | string | No | Filter string (e.g. "name:remember-") |
 
 ## Environment Variables
 

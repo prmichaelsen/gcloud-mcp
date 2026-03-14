@@ -37,9 +37,9 @@ milestones:
 
   - id: M4
     title: Jobs, Artifacts & Secrets
-    status: not_started
+    status: completed
     tasks_total: 4
-    tasks_completed: 0
+    tasks_completed: 4
     estimated_weeks: 1
     file: agent/milestones/milestone-4-jobs-artifacts-and-secrets.md
     dependencies:
@@ -164,8 +164,9 @@ tasks:
 
     - id: 15
       title: Update README and server registrations
-      status: not_started
+      status: completed
       estimated_hours: 1
+      completed_date: 2026-03-14
       dependencies: [12, 13, 14]
 
   milestone_5:
