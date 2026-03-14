@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:googleapis.dev)",
+      "WebFetch(domain:github.com)",
+      "Bash(./agent/scripts/acp.package-search.sh mcp:*)",
+      "Bash(./agent/scripts/acp.package-install.sh --repo https://github.com/prmichaelsen/acp-mcp-server-starter.git)",
+      "Bash(yes:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
