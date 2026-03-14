@@ -10,8 +10,9 @@ import {
 } from '@modelcontextprotocol/sdk/types.js';
 import { config, validateConfig } from './config.js';
 import { logger } from './utils/logger.js';
-
-// Tool imports will be added in Tasks 3 and 4
+import { listBuildsTool, handleListBuilds } from './tools/list-builds.js';
+import { getBuildTool, handleGetBuild } from './tools/get-build.js';
+import { getBuildLogsTool, handleGetBuildLogs } from './tools/get-build-logs.js';
 
 async function initServer(): Promise<Server> {
   logger.info('Initializing gcloud-mcp server...');
@@ -31,7 +32,10 @@ function registerHandlers(server: Server): void {
   server.setRequestHandler(ListToolsRequestSchema, async () => {
     return {
       tools: [
-        // Tools registered here in Tasks 3 and 4
+        listBuildsTool,
+        getBuildTool,
+        getBuildLogsTool,
+        // More tools added in Task 4
       ],
     };
   });
@@ -43,7 +47,16 @@ function registerHandlers(server: Server): void {
       let result: string;
 
       switch (name) {
-        // Tool cases added in Tasks 3 and 4
+        case 'list_builds':
+          result = await handleListBuilds(args as any);
+          break;
+        case 'get_build':
+          result = await handleGetBuild(args as any);
+          break;
+        case 'get_build_logs':
+          result = await handleGetBuildLogs(args as any);
+          break;
+        // More tool cases added in Task 4
         default:
           throw new McpError(ErrorCode.MethodNotFound, `Unknown tool: ${name}`);
       }
