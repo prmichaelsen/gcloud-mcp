@@ -36,8 +36,9 @@ tasks:
 
     - id: 2
       title: Implement Standalone Server
-      status: not_started
+      status: completed
       estimated_hours: 2
+      completed_date: 2026-03-14
       dependencies: [1]
       file: agent/tasks/milestone-1-project-setup-and-core-tools/task-2-implement-standalone-server.md
 
