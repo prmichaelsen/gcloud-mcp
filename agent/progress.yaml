@@ -123,8 +123,9 @@ tasks:
 
     - id: 9
       title: Implement gcloud_list_revisions
-      status: not_started
+      status: completed
       estimated_hours: 2
+      completed_date: 2026-03-14
       dependencies: [5]
 
     - id: 10
