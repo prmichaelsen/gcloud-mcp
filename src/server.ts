@@ -13,6 +13,7 @@ import { logger } from './utils/logger.js';
 import { listBuildsTool, handleListBuilds } from './tools/list-builds.js';
 import { getBuildTool, handleGetBuild } from './tools/get-build.js';
 import { getBuildLogsTool, handleGetBuildLogs } from './tools/get-build-logs.js';
+import { gcloudWhoamiTool, handleGcloudWhoami } from './tools/gcloud-whoami.js';
 
 async function initServer(): Promise<Server> {
   logger.info('Initializing gcloud-mcp server...');
@@ -35,7 +36,7 @@ function registerHandlers(server: Server): void {
         listBuildsTool,
         getBuildTool,
         getBuildLogsTool,
-        // More tools added in Task 4
+        gcloudWhoamiTool,
       ],
     };
   });
@@ -56,7 +57,9 @@ function registerHandlers(server: Server): void {
         case 'get_build_logs':
           result = await handleGetBuildLogs(args as any);
           break;
-        // More tool cases added in Task 4
+        case 'gcloud_whoami':
+          result = await handleGcloudWhoami(args as any);
+          break;
         default:
           throw new McpError(ErrorCode.MethodNotFound, `Unknown tool: ${name}`);
       }

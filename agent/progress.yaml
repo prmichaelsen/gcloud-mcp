@@ -9,9 +9,9 @@ project:
 milestones:
   - id: M1
     title: Project Setup & Core Tools
-    status: not_started
+    status: completed
     tasks_total: 4
-    tasks_completed: 0
+    tasks_completed: 4
     estimated_weeks: 1
     file: agent/milestones/milestone-1-project-setup-and-core-tools.md
 
@@ -52,8 +52,9 @@ tasks:
 
     - id: 4
       title: Implement Whoami Tool
-      status: not_started
+      status: completed
       estimated_hours: 1
+      completed_date: 2026-03-14
       dependencies: [2]
       file: agent/tasks/milestone-1-project-setup-and-core-tools/task-4-implement-whoami-tool.md
 
