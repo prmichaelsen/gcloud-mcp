@@ -47,9 +47,9 @@ milestones:
 
   - id: M5
     title: Write Operations
-    status: not_started
+    status: completed
     tasks_total: 4
-    tasks_completed: 0
+    tasks_completed: 4
     estimated_weeks: 2
     file: agent/milestones/milestone-5-write-operations.md
     dependencies:
@@ -193,8 +193,9 @@ tasks:
 
     - id: 19
       title: Update README and server registrations
-      status: not_started
+      status: completed
       estimated_hours: 1
+      completed_date: 2026-03-14
       dependencies: [16, 17, 18]
 
 documentation:

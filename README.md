@@ -1,6 +1,6 @@
 # @prmichaelsen/gcloud-mcp
 
-MCP server for Google Cloud Build and Cloud Run. List builds, get build details and logs, list Cloud Run services, and retrieve service logs.
+MCP server for Google Cloud — Cloud Build, Cloud Run, Artifact Registry, and Secret Manager. 17 tools for listing, inspecting, deploying, and managing GCP resources.
 
 ## Installation
 
@@ -190,6 +190,42 @@ List Secret Manager secret names (NOT values).
 |-----------|------|----------|-------------|
 | `projectId` | string | No | GCP project ID |
 | `filter` | string | No | Filter string (e.g. "name:remember-") |
+
+### `gcloud_run_trigger`
+Manually trigger a Cloud Build. Returns the build ID of the triggered build.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `triggerId` | string | Yes | Cloud Build trigger ID |
+| `branchName` | string | No | Branch to build from |
+| `tagName` | string | No | Tag to build from |
+| `substitutions` | object | No | Key-value substitution variables |
+| `projectId` | string | No | GCP project ID |
+
+### `gcloud_deploy_service`
+Deploy a new revision to a Cloud Run service by updating the container image.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `serviceName` | string | Yes | Cloud Run service name |
+| `image` | string | Yes | Container image (e.g. "gcr.io/project/image:tag") |
+| `region` | string | No | GCP region |
+| `projectId` | string | No | GCP project ID |
+| `env` | object | No | Environment variables to set (key-value) |
+| `memory` | string | No | Memory limit (e.g. "512Mi") |
+| `cpu` | string | No | CPU limit (e.g. "1") |
+| `minInstances` | number | No | Min instances |
+| `maxInstances` | number | No | Max instances |
+
+### `gcloud_set_traffic`
+Set traffic splitting between Cloud Run revisions for canary deployments and rollbacks.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `serviceName` | string | Yes | Cloud Run service name |
+| `traffic` | array | Yes | Traffic entries: [{revision, percent}]. Use "LATEST" for latest. Must sum to 100. |
+| `region` | string | No | GCP region |
+| `projectId` | string | No | GCP project ID |
 
 ## Environment Variables
 
