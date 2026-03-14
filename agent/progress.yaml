@@ -116,8 +116,9 @@ tasks:
   milestone_3:
     - id: 8
       title: Implement gcloud_get_service
-      status: not_started
+      status: completed
       estimated_hours: 3
+      completed_date: 2026-03-14
       dependencies: [5]
 
     - id: 9

@@ -14,6 +14,7 @@ import { getBuildLogsTool, handleGetBuildLogs } from './tools/get-build-logs.js'
 import { gcloudWhoamiTool, handleGcloudWhoami } from './tools/gcloud-whoami.js';
 import { listServicesTool, handleListServices } from './tools/list-services.js';
 import { getServiceLogsTool, handleGetServiceLogs } from './tools/get-service-logs.js';
+import { getServiceTool, handleGetService } from './tools/get-service.js';
 
 export interface ServerOptions {
   name?: string;
@@ -91,6 +92,7 @@ function registerHandlers(server: Server, userId: string): void {
       gcloudWhoamiTool,
       listServicesTool,
       getServiceLogsTool,
+      getServiceTool,
     ],
   }));
 
@@ -118,6 +120,9 @@ function registerHandlers(server: Server, userId: string): void {
           break;
         case 'gcloud_get_service_logs':
           result = await handleGetServiceLogs(args as any);
+          break;
+        case 'gcloud_get_service':
+          result = await handleGetService(args as any);
           break;
         default:
           throw new McpError(ErrorCode.MethodNotFound, `Unknown tool: ${name}`);
