@@ -69,8 +69,9 @@ tasks:
 
     - id: 6
       title: Create Server Factory
-      status: not_started
+      status: completed
       estimated_hours: 2
+      completed_date: 2026-03-14
       dependencies: [3, 5]
       file: agent/tasks/milestone-2-cloud-run-tools-and-publishing/task-6-create-server-factory.md
 

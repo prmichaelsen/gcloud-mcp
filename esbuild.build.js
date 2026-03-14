@@ -17,11 +17,34 @@ await esbuild.build({
     'dotenv',
   ],
   banner: {
-    js: "#!/usr/bin/env node\nimport { createRequire } from 'module'; const require = createRequire(import.meta.url);"
+    js: "import { createRequire } from 'module'; const require = createRequire(import.meta.url);"
   },
 });
 
 console.log('✓ Built server.js');
+
+await esbuild.build({
+  entryPoints: ['src/server-factory.ts'],
+  bundle: true,
+  platform: 'node',
+  target: 'node20',
+  format: 'esm',
+  outfile: 'dist/server-factory.js',
+  sourcemap: true,
+  external: [
+    '@modelcontextprotocol/sdk',
+    '@google-cloud/cloudbuild',
+    '@google-cloud/logging',
+    '@google-cloud/run',
+    'dotenv',
+    'google-auth-library',
+  ],
+  banner: {
+    js: "import { createRequire } from 'module'; const require = createRequire(import.meta.url);"
+  },
+});
+
+console.log('✓ Built server-factory.js');
 
 // Generate TypeScript declarations
 console.log('Generating TypeScript declarations...');
