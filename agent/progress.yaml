@@ -172,20 +172,23 @@ tasks:
   milestone_5:
     - id: 16
       title: Implement gcloud_run_trigger
-      status: not_started
+      status: completed
       estimated_hours: 3
+      completed_date: 2026-03-14
       dependencies: [10]
 
     - id: 17
       title: Implement gcloud_deploy_service
-      status: not_started
+      status: completed
       estimated_hours: 4
+      completed_date: 2026-03-14
       dependencies: [8]
 
     - id: 18
       title: Implement gcloud_set_traffic
-      status: not_started
+      status: completed
       estimated_hours: 3
+      completed_date: 2026-03-14
       dependencies: [8]
 
     - id: 19

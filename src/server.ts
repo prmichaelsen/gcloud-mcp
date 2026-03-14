@@ -22,6 +22,9 @@ import { listJobsTool, handleListJobs } from './tools/list-jobs.js';
 import { getJobExecutionTool, handleGetJobExecution } from './tools/get-job-execution.js';
 import { listArtifactsTool, handleListArtifacts } from './tools/list-artifacts.js';
 import { listSecretsTool, handleListSecrets } from './tools/list-secrets.js';
+import { runTriggerTool, handleRunTrigger } from './tools/run-trigger.js';
+import { deployServiceTool, handleDeployService } from './tools/deploy-service.js';
+import { setTrafficTool, handleSetTraffic } from './tools/set-traffic.js';
 
 async function initServer(): Promise<Server> {
   logger.info('Initializing gcloud-mcp server...');
@@ -55,6 +58,9 @@ function registerHandlers(server: Server): void {
         getJobExecutionTool,
         listArtifactsTool,
         listSecretsTool,
+        runTriggerTool,
+        deployServiceTool,
+        setTrafficTool,
       ],
     };
   });
@@ -107,6 +113,15 @@ function registerHandlers(server: Server): void {
           break;
         case 'gcloud_list_secrets':
           result = await handleListSecrets(args as any);
+          break;
+        case 'gcloud_run_trigger':
+          result = await handleRunTrigger(args as any);
+          break;
+        case 'gcloud_deploy_service':
+          result = await handleDeployService(args as any);
+          break;
+        case 'gcloud_set_traffic':
+          result = await handleSetTraffic(args as any);
           break;
         default:
           throw new McpError(ErrorCode.MethodNotFound, `Unknown tool: ${name}`);
