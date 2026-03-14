@@ -14,6 +14,9 @@ await esbuild.build({
     '@google-cloud/cloudbuild',
     '@google-cloud/logging',
     '@google-cloud/run',
+    '@google-cloud/artifact-registry',
+    '@google-cloud/secret-manager',
+    'google-auth-library',
     'dotenv',
   ],
   banner: {
@@ -36,8 +39,10 @@ await esbuild.build({
     '@google-cloud/cloudbuild',
     '@google-cloud/logging',
     '@google-cloud/run',
-    'dotenv',
+    '@google-cloud/artifact-registry',
+    '@google-cloud/secret-manager',
     'google-auth-library',
+    'dotenv',
   ],
   banner: {
     js: "import { createRequire } from 'module'; const require = createRequire(import.meta.url);"
