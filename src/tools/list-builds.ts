@@ -60,7 +60,7 @@ export async function handleListBuilds(args: ListBuildsArgs): Promise<string> {
       projectId,
       pageSize: limit,
       filter: filters.length > 0 ? filters.join(' AND ') : undefined,
-    });
+    }, { autoPaginate: false });
 
     const results = (builds || []).map((build) => ({
       id: build.id,
