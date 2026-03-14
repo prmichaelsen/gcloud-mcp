@@ -29,8 +29,9 @@ tasks:
   milestone_1:
     - id: 1
       title: Bootstrap Project
-      status: not_started
+      status: completed
       estimated_hours: 2
+      completed_date: 2026-03-14
       file: agent/tasks/milestone-1-project-setup-and-core-tools/task-1-bootstrap-project.md
 
     - id: 2

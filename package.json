@@ -1,0 +1,48 @@
+{
+  "name": "@prmichaelsen/gcloud-mcp",
+  "version": "0.1.0",
+  "description": "Google Cloud MCP server for Cloud Build and Cloud Run",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "node esbuild.build.js",
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "bin": {
+    "gcloud-mcp": "./dist/server.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js"
+    },
+    "./factory": {
+      "types": "./dist/server-factory.d.ts",
+      "import": "./dist/server-factory.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": ["mcp", "gcloud", "cloud-build", "cloud-run", "google-cloud"],
+  "author": "Patrick Michaelsen",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@google-cloud/cloudbuild": "^5.5.0",
+    "@google-cloud/logging": "^11.2.1",
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "dotenv": "^17.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.37",
+    "esbuild": "^0.20.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
